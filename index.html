@@ -2,20 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Visualisasi Durasi Game</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <style>
+    /* Supaya canvas memenuhi wadahnya dan responsif */
+    #myChart {
+      width: 100% !important;
+      height: auto !important;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
-    <!-- coba -->
-  <div class="bg-white shadow-lg rounded-xl p-8 w-full max-w-5xl">
-    <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4 sm:p-6">
+  <div class="bg-white shadow-lg rounded-xl p-6 sm:p-8 w-full max-w-5xl">
+    <h1 class="text-xl sm:text-2xl font-bold text-center text-gray-800 mb-6">
       Perbandingan Durasi Sesi Menang vs Kalah
     </h1>
-    <div class="relative h-[500px]">
-      <canvas id="myChart"></canvas>
+    <div class="relative w-full" style="padding-top: 56.25%;">
+      <!-- Container dengan aspect ratio 16:9 -->
+      <canvas id="myChart" class="absolute top-0 left-0 w-full h-full"></canvas>
     </div>
     <p id="error" class="text-red-500 mt-4 text-center hidden"></p>
   </div>
