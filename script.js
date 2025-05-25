@@ -8,26 +8,25 @@ fetch("data.csv")
     const menang = [];
     const kalah = [];
 
-data.forEach((row, i) => {
-  if (!row.c_name || !row.msec_duration || !row.win) return; // Skip baris kosong atau tidak lengkap
+    data.forEach((row) => {
+      if (!row.c_name || !row.msec_duration || !row.win) return;
 
-  const durasi = parseFloat(row.msec_duration) / 1000;
-  const win = row.win.trim();
+      const durasi = parseFloat(row.msec_duration) / 1000;
+      const win = row.win.trim();
 
-  labels.push(`Sesi ${labels.length + 1}`);
+      labels.push(`Sesi ${labels.length + 1}`);
 
-  if (win === "1") {
-    menang.push(durasi);
-    kalah.push(null);
-  } else if (win === "-1") {
-    menang.push(null);
-    kalah.push(durasi);
-  } else {
-    menang.push(null);
-    kalah.push(null);
-  }
-});
-
+      if (win === "1") {
+        menang.push(durasi);
+        kalah.push(null);
+      } else if (win === "-1") {
+        menang.push(null);
+        kalah.push(durasi);
+      } else {
+        menang.push(null);
+        kalah.push(null);
+      }
+    });
 
     new Chart(document.getElementById("myChart"), {
       type: "bar",
